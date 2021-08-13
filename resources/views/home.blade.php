@@ -9,17 +9,13 @@
                     Teste de conteúdo
                     <div class="row">
                         <div class="col-md-4">
-                            <caixa></caixa>
+                            <caixa qtd="55" titulo="Artigos" url="#" cor="orange" icone="ion ion-stats-bars"></caixa>
                         </div>
                         <div class="col-md-4">
-                            <painel titulo="Painel 2" cor="panel-warning">
-                                Teste
-                            </painel>
+                            <caixa qtd="666" titulo="Artigos" url="#" cor="blue" icone="ion ion-person-add"></caixa>
                         </div>
                         <div class="col-md-4">
-                            <painel titulo="Painel 3" cor="orange">
-                                Teste
-                            </painel>
+                            <caixa qtd="27" titulo="Artigos" url="#" cor="red" icone="ion ion-pie-graph"></caixa>
                         </div>
                     </div>
                 </painel>
