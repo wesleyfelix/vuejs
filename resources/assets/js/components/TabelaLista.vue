@@ -1,6 +1,13 @@
 <template>
   <div>
-    <a v-if="criar" v-bind:href="criar">Criar</a>
+
+    <div class="form-inline">
+      <a v-if="criar" v-bind:href="criar">Criar</a>
+      <div class="form-group pull-right">
+        <input class="form-control" type="search" placeholder="Buscar" v-model="buscar">
+      </div>
+    </div>
+
     <table class="table table-striped table-hover">
       <thead>
       <tr>
@@ -9,7 +16,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="(item, index) in itens">
+      <tr v-for="(item, index) in lista">
         <td v-for="i in item">{{ i }}</td>
         <td v-if="editar || detalhe || deletar">
           <form v-bind:id="index" v-if="deletar && token" v-bind:action="deletar" method="post">
@@ -51,10 +58,32 @@ export default {
       'deletar',
       'token'
     ],
+  data: function (){
+      return {
+          buscar:''
+      }
+  },
   methods:{
     executaForm: function(index){
       document.getElementById(index).submit();
     }
+  },
+  computed:{
+      lista:function() {
+
+        return this.itens.filter(res => {
+          for(let i = 0; i < res.length; i++){
+            if((res[i]+"").toLowerCase().indexOf(this.buscar.toLowerCase())>=0){
+              return true;
+            }
+          }
+          return false;
+
+        });
+
+
+        return this.itens;
+      }
   }
 }
 </script>
